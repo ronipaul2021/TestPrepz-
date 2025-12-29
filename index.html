@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestPrepz - Diploma Engineering Study Material</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://testprepz.com/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://testprepz.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://testprepz.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://testprepz.com/favicon-16x16.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #7c3aed;
+            --accent: #7c3aed;
+            --light: #f8fafc;
+            --dark: #1e1b4b;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --whatsapp: #25D366;
+            --indigo-dark: #4338ca;
+            --indigo-light: #6366f1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f3ff 0%, #e0e7ff 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .main-nav a {
+            color: var(--dark);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .cta-button {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(to right, var(--indigo-dark), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.1);
+            max-width: 1000px;
+            border: 1px solid #e0e7ff;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .exam-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, #fef3c7, #fde68a);
+            color: #92400e;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.1);
+        }
+
+        .exam-date i {
+            color: var(--warning);
+        }
+
+        /* Free Notice Banner */
+        .free-notice {
+            background: linear-gradient(to right, #10b981, #34d399);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #4b5563;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Semester Cards */
+        .semester-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .semester-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #e0e7ff;
+        }
+
+        .semester-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.2);
+        }
+
+        /* Free Badge */
+        .free-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--success);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+        }
+
+        .semester-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .semester-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .semester-body {
+            padding: 1.5rem;
+        }
+
+        .department-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .department-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e0e7ff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .department-list li:hover {
+            background: #f8fafc;
+            padding-left: 10px;
+        }
+
+        .department-list li:last-child {
+            border-bottom: none;
+        }
+
+        .dept-name {
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .status {
+            font-size: 0.9rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .status.available {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status.upcoming {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .drive-link {
+            display: block;
+            text-align: center;
+            background: var(--success);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+        }
+
+        .drive-link:hover {
+            background: #0da271;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .drive-link i {
+            margin-right: 8px;
+        }
+
+        /* Notification Banner */
+        .notification {
+            background: #fffbeb;
+            border-left: 5px solid var(--warning);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.1);
+        }
+
+        .notification i {
+            color: var(--warning);
+            font-size: 1.5rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--whatsapp), #128C7E);
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background: linear-gradient(135deg, #128C7E, #075E54);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float-text {
+            position: absolute;
+            right: 70px;
+            background: white;
+            color: var(--dark);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e7ff;
+        }
+
+        .whatsapp-float:hover .whatsapp-float-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Footer - Updated to Gray Theme */
+        footer {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: #e2e8f0;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #f7fafc;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e0;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: #4a5568;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        /* Countdown Timer */
+        #countdown {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .main-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .main-nav a {
+                margin: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .semester-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 25px;
+            }
+
+            .whatsapp-float-text {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .semester-card,
+        .hero,
+        .notification {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--indigo-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918016138213?text=Hello%20TestPrepz%21%20I%20need%20help%20with%20diploma%20study%20material."
+        class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-float-text">Get Help on WhatsApp</span>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <!-- Replace the src with your custom logo URL -->
+                <img src="fav-1.png" alt="TestPrepz Logo" class="logo-img">
+                <span>TestPrepz.com</span>
+            </a>
+            <nav class="main-nav">
+                <a href="#semesters">Study Material</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="https://ronipaul2021.github.io/TestPrepz/" class="cta-button" target="_blank">
+                Visit Main Website <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Diploma Engineering Study Material</h1>
+            <p>Get complete study resources for 1st, 3rd, and 5th semester exams. Access notes, previous year papers,
+                and important questions compiled by experts.</p>
+
+            <!-- Free Notice -->
+            <div class="free-notice">
+                <i class="fas fa-gift"></i> SPECIAL OFFER: Diploma suggestions is FREE only for this semester!
+            </div>
+
+            <div class="exam-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Exams Starting: January 13, 2026</span>
+            </div>
+            <div id="countdown">
+                <i class="fas fa-clock"></i>
+                <span>Loading countdown...</span>
+            </div>
+            <div class="notification">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>Website Under Development:</strong> More features and content coming soon! Currently
+                    focusing on diploma engineering materials for upcoming exams.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content container" id="semesters">
+        <div class="section-title">
+            <h2>Semester-wise Study Material</h2>
+            <p>Access Google Drive links for all departments. Materials are regularly updated with new content.</p>
+        </div>
+
+        <!-- Semester 1 -->
+        <div class="semester-card">
+            <div class="free-badge">FREE</div>
+            <div class="semester-header">
+                <h3>First Semester (1st)</h3>
+                <p>Common subjects for all departments</p>
+            </div>
+            <div class="semester-body">
+                <ul class="department-list">
+                    <li>
+                        <span class="dept-name">All Departments (Common)</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Applied Science</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Engineering Mathematics</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Communication</span>
+                        <span class="status available">Available</span>
+                    </li>
+                </ul>
+                <a href="https://drive.google.com/drive/folders/YOUR_DRIVE_LINK_HERE" class="drive-link"
+                    target="_blank">
+                    <i class="fab fa-google-drive"></i> Access 1st Sem Material
+                </a>
+            </div>
+        </div>
+
+        <!-- Semester 3 -->
+        <div class="semester-card">
+            <div class="free-badge">FREE</div>
+            <div class="semester-header">
+                <h3>Third Semester (3rd)</h3>
+                <p>Department-specific subjects</p>
+            </div>
+            <div class="semester-body">
+                <ul class="department-list">
+                    <li>
+                        <span class="dept-name">Computer Engineering</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Mechanical Engineering</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Civil Engineering</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Electrical Engineering</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Electronics Engineering</span>
+                        <span class="status upcoming">Uploading Soon</span>
+                    </li>
+                </ul>
+                <a href="https://drive.google.com/drive/folders/YOUR_DRIVE_LINK_HERE" class="drive-link"
+                    target="_blank">
+                    <i class="fab fa-google-drive"></i> Access 3rd Sem Material
+                </a>
+            </div>
+        </div>
+
+        <!-- Semester 5 -->
+        <div class="semester-card">
+            <div class="free-badge">FREE</div>
+            <div class="semester-header">
+                <h3>Fifth Semester (5th)</h3>
+                <p>Advanced department subjects</p>
+            </div>
+            <div class="semester-body">
+                <ul class="department-list">
+                    <li>
+                        <span class="dept-name">Computer Engineering</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Information Technology</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Mechanical Engineering</span>
+                        <span class="status available">Available</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Civil Engineering</span>
+                        <span class="status upcoming">Uploading Soon</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Electrical Engineering</span>
+                        <span class="status upcoming">Uploading Soon</span>
+                    </li>
+                    <li>
+                        <span class="dept-name">Automobile Engineering</span>
+                        <span class="status upcoming">Uploading Soon</span>
+                    </li>
+                </ul>
+                <a href="https://drive.google.com/drive/folders/YOUR_DRIVE_LINK_HERE" class="drive-link"
+                    target="_blank">
+                    <i class="fab fa-google-drive"></i> Access 5th Sem Material
+                </a>
+            </div>
+        </div>
+
+        <div class="notification" id="about">
+            <i class="fas fa-bullhorn"></i>
+            <div>
+                <strong>Important Note:</strong> Our diploma study material is completely FREE only for this semester.
+                This is a special offer for current students. Take advantage of this opportunity and download all
+                materials before the offer ends!
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TestPrepz</h3>
+                    <p>Your one-stop solution for engineering exam preparation. Focused on diploma students since 2023.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#semesters">Study Material</a>
+                    <a href="https://ronipaul2021.github.io/TestPrepz/" target="_blank">Main Website</a>
+                    <a href="#contact">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> support@testprepz.com</p>
+                    <p><i class="fas fa-phone"></i> +91 9883407189</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ranaghat, Nadia, West Bengal</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 TestPrepz.com - Diploma Study Material is FREE for this semester only</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update exam countdown
+        function updateCountdown() {
+            const examDate = new Date('January 13, 2026').getTime();
+            const now = new Date().getTime();
+            const timeLeft = examDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            const countdownElement = document.getElementById('countdown');
+            if (countdownElement) {
+                countdownElement.innerHTML = `
+                    <i class="fas fa-clock"></i>
+                    <span>${days}d ${hours}h ${minutes}m ${seconds}s until exams</span>
+                `;
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCountdown();
+
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+
+            // Highlight current page in nav
+            const currentPage = window.location.hash || '#';
+            document.querySelectorAll('.main-nav a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.style.color = 'var(--primary)';
+                    link.style.fontWeight = '600';
+                }
+            });
+
+            // Add scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all semester cards
+            document.querySelectorAll('.semester-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+
+</html>
