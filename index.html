@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TestPrepz - Diploma Engineering Study Material</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://testprepz.com/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://testprepz.com/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://testprepz.com/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://testprepz.com/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="fav-1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="fav-1.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="fav-1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="fav-1.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -24,6 +24,9 @@
             --whatsapp: #25D366;
             --indigo-dark: #4338ca;
             --indigo-light: #6366f1;
+            --paid: #ef4444;
+            --free: #10b981;
+            --uploading: #3b82f6;
         }
 
         * {
@@ -233,7 +236,7 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background: var(--success);
+            background: var(--free);
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
@@ -241,6 +244,20 @@
             font-weight: 600;
             z-index: 2;
             box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+        }
+
+        .paid-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--paid);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2);
         }
 
         .semester-header {
@@ -304,6 +321,16 @@
             color: #92400e;
         }
 
+        .status.paid {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status.uploading {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
         .drive-link {
             display: block;
             text-align: center;
@@ -315,6 +342,7 @@
             font-weight: 600;
             transition: all 0.3s;
             box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+            margin-bottom: 0.5rem;
         }
 
         .drive-link:hover {
@@ -323,8 +351,52 @@
             box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
         }
 
-        .drive-link i {
+        .whatsapp-link {
+            display: block;
+            text-align: center;
+            background: var(--whatsapp);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2);
+        }
+
+        .whatsapp-link:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .drive-link i,
+        .whatsapp-link i {
             margin-right: 8px;
+        }
+
+        .access-info {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+
+        /* Department Link in Row */
+        .dept-link {
+            font-size: 0.9rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-left: 10px;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: #e0e7ff;
+            transition: all 0.3s;
+        }
+
+        .dept-link:hover {
+            background: var(--primary);
+            color: white;
         }
 
         /* Notification Banner */
@@ -512,6 +584,12 @@
             .whatsapp-float-text {
                 display: none;
             }
+
+            .dept-link {
+                font-size: 0.8rem;
+                margin-left: 5px;
+                padding: 0.1rem 0.4rem;
+            }
         }
 
         /* Animations */
@@ -628,31 +706,31 @@
                 <ul class="department-list">
                     <li>
                         <span class="dept-name">All Departments (Common)</span>
-                        <span class="status available">Available</span>
+                        <span class="status available">FREE</span>
                     </li>
                     <li>
                         <span class="dept-name">Applied Science</span>
-                        <span class="status available">Available</span>
+                        <span class="status available">FREE</span>
                     </li>
                     <li>
                         <span class="dept-name">Engineering Mathematics</span>
-                        <span class="status available">Available</span>
+                        <span class="status available">FREE</span>
                     </li>
                     <li>
                         <span class="dept-name">Communication</span>
-                        <span class="status available">Available</span>
+                        <span class="status available">FREE</span>
                     </li>
                 </ul>
-                <a href="https://drive.google.com/drive/folders/YOUR_DRIVE_LINK_HERE" class="drive-link"
-                    target="_blank">
+                <a href="https://mega.nz/fm/4vtjUBba" class="drive-link" target="_blank">
                     <i class="fab fa-google-drive"></i> Access 1st Sem Material
                 </a>
+                <p class="access-info">All 1st semester materials are completely FREE</p>
             </div>
         </div>
 
         <!-- Semester 3 -->
         <div class="semester-card">
-            <div class="free-badge">FREE</div>
+            <div class="paid-badge">MIXED</div>
             <div class="semester-header">
                 <h3>Third Semester (3rd)</h3>
                 <p>Department-specific subjects</p>
@@ -661,35 +739,51 @@
                 <ul class="department-list">
                     <li>
                         <span class="dept-name">Computer Engineering</span>
-                        <span class="status available">Available</span>
+                        <span class="status paid">PAID</span>
+                        <a href="https://wa.me/918016138213?text=Hello%20TestPrepz%21%20I%20want%20to%20purchase%203rd%20semester%20Computer%20Engineering%20material."
+                            class="dept-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Buy
+                        </a>
                     </li>
                     <li>
                         <span class="dept-name">Mechanical Engineering</span>
-                        <span class="status available">Available</span>
+                        <span class="status uploading">UPLOADING SOON</span>
                     </li>
                     <li>
                         <span class="dept-name">Civil Engineering</span>
-                        <span class="status available">Available</span>
+                        <span class="status available">FREE</span>
+                        <a href="YOUR_DRIVE_LINK_HERE" class="dept-link" target="_blank">
+                            <i class="fab fa-google-drive"></i> Drive
+                        </a>
                     </li>
                     <li>
                         <span class="dept-name">Electrical Engineering</span>
-                        <span class="status available">Available</span>
+                        <span class="status paid">PAID</span>
+                        <a href="https://wa.me/918016138213?text=Hello%20TestPrepz%21%20I%20want%20to%20purchase%203rd%20semester%20Electrical%20Engineering%20material."
+                            class="dept-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Buy
+                        </a>
                     </li>
                     <li>
                         <span class="dept-name">Electronics Engineering</span>
-                        <span class="status upcoming">Uploading Soon</span>
+                        <span class="status uploading">UPLOADING SOON</span>
                     </li>
                 </ul>
-                <a href="https://drive.google.com/drive/folders/YOUR_DRIVE_LINK_HERE" class="drive-link"
-                    target="_blank">
-                    <i class="fab fa-google-drive"></i> Access 3rd Sem Material
+                <p class="access-info">FREE: Direct Drive links | PAID: Contact via WhatsApp | UPLOADING SOON: Coming
+                    within 7 days</p>
+                <!-- <a href="https://drive.google.com/drive/folders/YOUR_FREE_3RD_SEM_DRIVE" class="drive-link" target="_blank">
+                    <i class="fab fa-google-drive"></i> Access All Free Materials
+                </a> -->
+                <a href="https://wa.me/918016138213?text=Hello%20TestPrepz%21%20I%20want%20to%20purchase%203rd%20semester%20paid%20material."
+                    class="whatsapp-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Get Paid Materials via WhatsApp
                 </a>
             </div>
         </div>
 
         <!-- Semester 5 -->
         <div class="semester-card">
-            <div class="free-badge">FREE</div>
+            <div class="paid-badge">MIXED</div>
             <div class="semester-header">
                 <h3>Fifth Semester (5th)</h3>
                 <p>Advanced department subjects</p>
@@ -698,32 +792,47 @@
                 <ul class="department-list">
                     <li>
                         <span class="dept-name">Computer Engineering</span>
-                        <span class="status available">Available</span>
-                    </li>
-                    <li>
-                        <span class="dept-name">Information Technology</span>
-                        <span class="status available">Available</span>
+                        <span class="status paid">PAID</span>
+                        <a href="https://wa.me/918016138213?text=Hello%20TestPrepz%21%20I%20want%20to%20purchase%203rd%20semester%20Computer%20Engineering%20material."
+                            class="dept-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Buy
+                        </a>
                     </li>
                     <li>
                         <span class="dept-name">Mechanical Engineering</span>
-                        <span class="status available">Available</span>
+                        <span class="status available">FREE</span>
+                        <a href="YOUR_DRIVE_LINK_HERE" class="dept-link" target="_blank">
+                            <i class="fab fa-google-drive"></i> Drive
+                        </a>
                     </li>
                     <li>
                         <span class="dept-name">Civil Engineering</span>
-                        <span class="status upcoming">Uploading Soon</span>
+                        <span class="status available">FREE</span>
+                        <a href="YOUR_DRIVE_LINK_HERE" class="dept-link" target="_blank">
+                            <i class="fab fa-google-drive"></i> Drive
+                        </a>
                     </li>
                     <li>
                         <span class="dept-name">Electrical Engineering</span>
-                        <span class="status upcoming">Uploading Soon</span>
+                        <span class="status paid">PAID</span>
+                        <a href="https://wa.me/918016138213?text=Hello%20TestPrepz%21%20I%20want%20to%20purchase%205th%20semester%20Electrical%20Engineering%20material."
+                            class="dept-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Buy
+                        </a>
                     </li>
                     <li>
                         <span class="dept-name">Automobile Engineering</span>
-                        <span class="status upcoming">Uploading Soon</span>
+                        <span class="status uploading">UPLOADING SOON</span>
                     </li>
                 </ul>
-                <a href="https://drive.google.com/drive/folders/YOUR_DRIVE_LINK_HERE" class="drive-link"
-                    target="_blank">
-                    <i class="fab fa-google-drive"></i> Access 5th Sem Material
+                <p class="access-info">FREE: Direct Drive links | PAID: Contact via WhatsApp | UPLOADING SOON: Coming
+                    within 7 days</p>
+                <!-- <a href="https://drive.google.com/drive/folders/YOUR_FREE_5TH_SEM_DRIVE" class="drive-link" target="_blank">
+                    <i class="fab fa-google-drive"></i> Access All Free Materials
+                </a> -->
+                <a href="https://wa.me/918016138213?text=Hello%20TestPrepz%21%20I%20want%20to%20purchase%205th%20semester%20paid%20material."
+                    class="whatsapp-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Get Paid Materials via WhatsApp
                 </a>
             </div>
         </div>
@@ -744,7 +853,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>TestPrepz</h3>
-                    <p>Your one-stop solution for engineering exam preparation. Focused on diploma students since 2023.
+                    <p>Your one-stop solution for engineering exam preparation. Focused on diploma students since 2022.
                     </p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
